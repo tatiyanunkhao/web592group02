@@ -2,83 +2,26 @@
 
 <!doctype html>
 <html lang="th">
+<head>
 <meta charset="utf-8">
-<head>
- <strong><FONT FACE="JasmineUPC">
-<font size = "5">
-
-<?php 
-$appid = "kanjana-prompakdee.appspot.com";
-$page = $_GET['p'];
-if($page=='') $page='main';
-$title = $page;
-function panel_include($title,$file,$ptype='default'){
-echo "<div class='panel panel-$ptype'>";
-echo "<div class='panel-heading'>$title</div>";
-echo "<div class='panel-body'>";
-if(file_exists($file)){
-include($file);
-}else{
-echo "ไม่พบไฟล์  $file "; 
-}
-echo "</div>";
-echo "</div>";
-}
-use google\appengine\api\cloud_storage\CloudStorageTools;
-function userpic($uid){
- global $appid;
- $userpic="gs://$appid/{$uid}.jpg";
- if(!file_exists($userpic)){
- return "https://upic.me/i/gv/paul_frank_wallpaper_by_funkyman1-d32sfi2.jpg";
- }
- return CloudStorageTools::getImageServingUrl($userpic,["size"=>200]);
-}
-?>
-
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title><?= $page ?> </title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet"
-href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" 
-href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>book</title>
 </head>
-<body role="document">
-<header class="page-header text-center">
-<body background="http://i021.radikal.ru/0804/57/3f9d58ae6b47.jpg">
-<?php 
-readfile("gs://$appid/header.html"); 
-?>
-</header>
+<body>
+<BODY BACKGROUND="picture.jpg">
+<center>
+<h1 style="font-size:60px;color:#FFCCFF">Janthakarn's Home Page</h1>
+<h2 style="font-size:45px;color:#FFFFF0">Welcome to my website<br>
+<TD WIDTH="30%"><IMG SRC="doll.gif" WIDTH="100" HEIGHT="100"></TD>
+<br>
+<h3 style="font-size:45px;color:#99FFFF">วิชา 322-236 Web Application Programming</h3>
+<ul>
+<li><a href='camera.html'><b><font color="#FFFF00">1</b> เสื้อผ้า </a><br>
+<br>
+<li><a href='camera.html'><b><font color="#FFFF00">2</b> กล้อง </a><br>
+<br>
 
-<div class="container">
-<div class="col-sm-3">
-<h3><?php panel_include("User","work8_user.php"); ?>
-<?php panel_include("Menu","work8_menu.php"); ?></h3>
+</center>
 </div>
-<div class="col-sm-9">
-<h3><?php panel_include($title,"work8_body.php" ,"primary"); ?></h3>
-</div>
-</div>
-			<FORM>
-			<center>
-				<h3><INPUT TYPE="BUTTON" VALUE="กลับไปหน้าเเรก" ONCLICK="window.location.href='../main.php'"></h3>
-				</center>
-			</FORM>
-			
-<footer class="text-center page-footer">
-<center><?php 
-readfile("gs://$appid/footer.html"); 
-echo "<br><a href='?p=edit&file=header.html' class='btn btn-default'>แก้ไข header</a>"; 
-echo "<a href='?p=edit&file=footer.html' class='btn btn-default'>แก้ไข footer</a>"; 
-?></center>
-</footer>
-</body>
+ </body>
 </html>
